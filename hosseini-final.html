@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تابلوسازی حسینی — FULL COLOR</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Vazirmatn:wght@300;400;700;900&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#f5a623;--cyan:#00ffff;--mag:#ff00ff;--dark:#01020a;--green:#00ff88;--card:rgba(255,255,255,0.02)}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;cursor:none}
+#cur{position:fixed;width:10px;height:10px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);box-shadow:0 0 20px var(--cyan);transition:transform 0.05s}
+#cur2{position:fixed;width:36px;height:36px;border:1px solid rgba(0,255,255,0.4);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:all 0.12s ease}
+#three-canvas{position:fixed;inset:0;z-index:0}
+body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,255,255,0.008) 3px,rgba(0,255,255,0.008) 4px)}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;height:70px;padding:0 4%;display:flex;align-items:center;justify-content:space-between;background:rgba(1,2,10,0.8);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,255,255,0.08)}
+.logo{font-family:'Orbitron',sans-serif;font-size:0.9rem;font-weight:900;letter-spacing:4px;background:linear-gradient(90deg,var(--gold),var(--cyan),var(--mag),var(--gold));background-size:300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:lgS 5s linear infinite}
+@keyframes lgS{0%{background-position:0%}100%{background-position:300%}}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Orbitron',sans-serif;font-size:0.62rem;letter-spacing:3px;color:rgba(255,255,255,0.3);text-decoration:none;transition:all 0.3s}
+.nav-links a:hover{color:var(--cyan);text-shadow:0 0 15px var(--cyan)}
+.nav-right{display:flex;gap:12px;align-items:center}
+.btn-cart{background:transparent;border:1px solid rgba(0,255,255,0.25);color:var(--cyan);padding:8px 20px;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-weight:700;font-size:0.82rem;display:flex;align-items:center;gap:8px;transition:all 0.3s;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.btn-cart:hover{background:rgba(0,255,255,0.08);box-shadow:0 0 30px rgba(0,255,255,0.2)}
+.cbadge{background:var(--mag);color:#fff;border-radius:50%;width:20px;height:20px;font-size:0.68rem;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 0 12px var(--mag)}
+.btn-admin-nav{background:transparent;border:1px solid rgba(245,166,35,0.25);color:var(--gold);padding:8px 16px;cursor:pointer;font-family:'Orbitron',sans-serif;font-size:0.6rem;letter-spacing:2px;transition:all 0.3s;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+.btn-admin-nav:hover{background:rgba(245,166,35,0.08)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 4% 60px;position:relative;z-index:2}
+.hero-inner{max-width:1400px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.h-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px}
+.h-ey-line{width:30px;height:1px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.h-ey-text{font-family:'Orbitron',sans-serif;font-size:0.6rem;letter-spacing:4px;color:var(--cyan)}
+.h-ey-dot{width:5px;height:5px;background:var(--cyan);border-radius:50%;animation:blink 1.5s infinite;box-shadow:0 0 8px var(--cyan)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-h1{font-family:'Orbitron',sans-serif;font-weight:900;line-height:1;margin-bottom:4px}
+.h1-top{font-size:clamp(0.8rem,2vw,1.1rem);letter-spacing:8px;color:rgba(255,255,255,0.2);display:block;margin-bottom:8px}
+.h1-main{font-size:clamp(3.5rem,8vw,8rem);display:block;letter-spacing:-3px}
+.t1{background:linear-gradient(180deg,#fff,rgba(255,255,255,0.6));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.t2{background:linear-gradient(90deg,var(--gold),#ff8c00,var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gM 3s linear infinite}
+@keyframes gM{0%{background-position:0%}100%{background-position:200%}}
+.h1-sub{font-size:clamp(1rem,2.5vw,2rem);display:block;color:rgba(255,255,255,0.1);letter-spacing:12px;margin-top:8px;font-family:'Orbitron',sans-serif}
+.hero-p{color:rgba(255,255,255,0.3);font-size:0.9rem;line-height:2;margin:28px 0 40px;max-width:460px;padding-right:20px;border-right:1px solid rgba(0,255,255,0.2)}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-p{background:linear-gradient(135deg,var(--gold),#c47d10);color:#000;border:none;padding:15px 34px;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-weight:900;font-size:0.95rem;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+.btn-p::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);transform:translateX(-100%);animation:shine 3s infinite}
+@keyframes shine{0%{transform:translateX(-100%)}30%,100%{transform:translateX(200%)}}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 15px 50px rgba(245,166,35,0.4)}
+.btn-g{background:transparent;color:var(--cyan);border:1px solid rgba(0,255,255,0.3);padding:15px 34px;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-size:0.95rem;transition:all 0.3s;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+.btn-g:hover{background:rgba(0,255,255,0.06);box-shadow:0 0 40px rgba(0,255,255,0.15)}
+
+/* HERO RIGHT */
+.hero-right{position:relative;height:500px}
+.sign-ring{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ring-outer{width:420px;height:420px;border-radius:50%;border:1px solid rgba(0,255,255,0.07);position:absolute;animation:spinS 30s linear infinite}
+.ring-mid{width:320px;height:320px;border-radius:50%;border:1px solid rgba(245,166,35,0.09);position:absolute;animation:spinS 20s linear infinite reverse}
+.ring-inner{width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,0,255,0.07);position:absolute;animation:spinS 12s linear infinite}
+@keyframes spinS{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.ring-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 15px var(--cyan);top:-3px;left:50%;transform:translateX(-50%)}
+.ring-dot2{background:var(--gold);box-shadow:0 0 15px var(--gold)}
+.ring-dot3{background:var(--mag);box-shadow:0 0 15px var(--mag)}
+.signs-3d{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.s3d{position:absolute;font-family:'Orbitron',sans-serif;font-weight:900;font-size:4.5rem;width:120px;height:120px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);cursor:pointer;transition:all 0.4s}
+.s3d:hover{transform:scale(1.15) translateY(-5px)!important}
+.s3d-a{background:rgba(245,166,35,0.08);color:var(--gold);top:40px;right:60px;animation:f1 7s ease-in-out infinite;text-shadow:0 0 40px var(--gold)}
+.s3d-b{background:rgba(0,255,255,0.08);color:var(--cyan);top:40px;left:60px;animation:f2 8s ease-in-out infinite;text-shadow:0 0 40px var(--cyan)}
+.s3d-c{background:rgba(255,0,255,0.08);color:var(--mag);bottom:40px;right:60px;animation:f3 6s ease-in-out infinite;text-shadow:0 0 40px var(--mag)}
+.s3d-d{background:rgba(0,255,136,0.08);color:var(--green);bottom:40px;left:60px;animation:f4 9s ease-in-out infinite;text-shadow:0 0 40px var(--green)}
+.s3d-center{font-size:1.8rem;width:90px;height:90px;background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.04);animation:f5 5s ease-in-out infinite}
+@keyframes f1{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes f2{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes f3{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes f4{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes f5{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+
+/* TICKER */
+.ticker-wrap{position:relative;z-index:2;overflow:hidden;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);padding:20px 0;background:rgba(0,255,255,0.01)}
+.ticker-track{display:flex;gap:60px;width:max-content;animation:tick 25s linear infinite}
+.tick-item{display:flex;align-items:center;gap:14px;white-space:nowrap}
+.tick-n{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:900;color:var(--gold);text-shadow:0 0 20px rgba(245,166,35,0.4)}
+.tick-l{color:rgba(255,255,255,0.3);font-size:0.8rem}
+.tick-sep{color:rgba(0,255,255,0.2);font-size:1.2rem}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTION */
+.section{position:relative;z-index:2;padding:100px 4%;max-width:1400px;margin:0 auto}
+.s-eye{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.s-eye-line{width:40px;height:1px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.s-eye-txt{font-family:'Orbitron',sans-serif;font-size:0.6rem;letter-spacing:5px;color:var(--cyan);text-transform:uppercase}
+.s-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;margin-bottom:8px;line-height:1.1}
+.s-title em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.s-sub{color:rgba(255,255,255,0.25);font-size:0.88rem;margin-bottom:60px}
+
+/* PRODUCTS GRID */
+.p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;background:rgba(255,255,255,0.04)}
+.p-card{background:var(--dark);position:relative;overflow:hidden;cursor:pointer;transition:transform 0.5s cubic-bezier(0.23,1,0.32,1)}
+.p-card:hover{transform:translateY(-6px)}
+.p-visual{height:200px;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-weight:900;font-size:5rem;position:relative;overflow:hidden}
+.p-scanline{position:absolute;width:100%;height:3px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:scanM 2.5s linear infinite}
+@keyframes scanM{0%{top:-5px}100%{top:105%}}
+.p-img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.85}
+.p-letter{position:relative;z-index:1}
+.p-info{padding:22px;border-top:1px solid rgba(255,255,255,0.04)}
+.p-num{font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:3px;color:rgba(255,255,255,0.2);margin-bottom:6px}
+.p-name{font-weight:700;font-size:0.9rem;margin-bottom:6px}
+.p-desc{color:rgba(255,255,255,0.25);font-size:0.78rem;line-height:1.7;margin-bottom:18px}
+.p-foot{display:flex;align-items:center;justify-content:space-between}
+.p-price{font-family:'Orbitron',sans-serif;font-size:0.8rem;color:var(--gold)}
+.btn-add{background:transparent;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);padding:7px 16px;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-size:0.78rem;font-weight:600;transition:all 0.3s;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+.btn-add:hover{border-color:var(--gold);color:var(--gold)}
+.btn-add.added{border-color:var(--green);color:var(--green)}
+
+/* ORDER */
+.order-wrap{background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.06);padding:60px;position:relative;overflow:hidden}
+.order-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--cyan),var(--mag),transparent);background-size:200%;animation:topB 5s linear infinite}
+@keyframes topB{0%{background-position:0%}100%{background-position:200%}}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.f-g{display:flex;flex-direction:column;gap:8px}
+.f-g.full{grid-column:1/-1}
+.f-lbl{font-family:'Orbitron',sans-serif;font-size:0.58rem;letter-spacing:3px;color:rgba(255,255,255,0.25);text-transform:uppercase}
+.f-in,.f-sel,.f-ta{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);padding:14px 18px;color:#fff;font-family:'Vazirmatn',sans-serif;font-size:0.88rem;outline:none;transition:all 0.3s;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+.f-in:focus,.f-sel:focus,.f-ta:focus{border-color:rgba(0,255,255,0.3);background:rgba(0,255,255,0.02)}
+.f-sel option{background:#01020a}
+.f-ta{resize:vertical;min-height:110px}
+.sub-btn{margin-top:28px;width:100%;background:linear-gradient(135deg,var(--gold),#c47d10);color:#000;border:none;padding:18px;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-weight:900;font-size:1rem;letter-spacing:2px;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+.sub-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);transform:translateX(-100%);animation:shine 3s infinite}
+.sub-btn:hover{transform:translateY(-2px);box-shadow:0 15px 50px rgba(245,166,35,0.35)}
+
+/* CONTACT */
+.c-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1px;background:rgba(255,255,255,0.04)}
+.c-card{background:var(--dark);padding:38px;position:relative;overflow:hidden;transition:all 0.3s}
+.c-card::before{content:'';position:absolute;top:0;right:0;width:1px;height:0;background:linear-gradient(180deg,var(--cyan),transparent);transition:height 0.5s}
+.c-card:hover::before{height:100%}
+.c-card:hover{background:rgba(0,255,255,0.015)}
+.c-ic{font-size:2rem;margin-bottom:18px;display:block}
+.c-lbl{font-family:'Orbitron',sans-serif;font-size:0.55rem;letter-spacing:4px;color:rgba(255,255,255,0.2);margin-bottom:10px;text-transform:uppercase}
+.c-val{font-weight:700;font-size:1.1rem;color:var(--gold);direction:ltr;text-align:right}
+.c-sub{color:rgba(255,255,255,0.2);font-size:0.78rem;margin-top:6px}
+
+footer{position:relative;z-index:2;border-top:1px solid rgba(255,255,255,0.04);padding:48px 4%;text-align:center}
+.f-logo{font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:900;letter-spacing:6px;background:linear-gradient(90deg,var(--gold),var(--cyan),var(--mag));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;animation:lgS 5s linear infinite;background-size:300%}
+footer p{color:rgba(255,255,255,0.15);font-size:0.8rem;margin-top:8px}
+
+/* MODALS BASE */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.92);backdrop-filter:blur(20px);z-index:5000;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.open{display:flex}
+.modal{background:#01020a;border:1px solid rgba(0,255,255,0.12);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;padding:36px;position:relative}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+.m-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.m-title{font-family:'Orbitron',sans-serif;font-size:0.85rem;letter-spacing:3px}
+.m-close{background:none;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);width:32px;height:32px;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center}
+.m-close:hover{border-color:var(--mag);color:var(--mag)}
+
+/* CART */
+.c-item{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.c-ic2{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+.c-nm{font-weight:600;font-size:0.85rem}
+.c-pr{font-family:'Orbitron',sans-serif;color:var(--gold);font-size:0.75rem;margin-top:4px}
+.c-rm{background:none;border:none;color:rgba(255,255,255,0.15);cursor:pointer;font-size:1rem;margin-right:auto;padding:4px}
+.c-rm:hover{color:#ff4757}
+.c-empty{text-align:center;padding:50px 0;color:rgba(255,255,255,0.15);font-family:'Orbitron',sans-serif;font-size:0.7rem;letter-spacing:3px}
+.ck-btn{width:100%;margin-top:24px;background:linear-gradient(135deg,var(--gold),#c47d10);color:#000;border:none;padding:16px;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-weight:900;font-size:0.92rem;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+
+/* ===== ADMIN PANEL ===== */
+#adminOverlay .modal{max-width:780px;border-color:rgba(245,166,35,0.2)}
+#adminOverlay .modal::before{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.admin-tabs{display:flex;gap:2px;margin-bottom:28px;background:rgba(255,255,255,0.03);padding:4px}
+.a-tab{flex:1;background:transparent;border:none;color:rgba(255,255,255,0.3);padding:10px;cursor:pointer;font-family:'Orbitron',sans-serif;font-size:0.6rem;letter-spacing:2px;transition:all 0.3s}
+.a-tab.active{background:rgba(245,166,35,0.1);color:var(--gold);border-bottom:1px solid var(--gold)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* product list in admin */
+.adm-prod-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;max-height:300px;overflow-y:auto}
+.adm-prod-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);transition:border-color 0.2s}
+.adm-prod-item:hover{border-color:rgba(255,255,255,0.1)}
+.adm-prod-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-weight:900;font-size:1.2rem;flex-shrink:0}
+.adm-prod-info{flex:1}
+.adm-prod-name{font-size:0.85rem;font-weight:600}
+.adm-prod-price{font-size:0.75rem;color:var(--gold);font-family:'Orbitron',sans-serif}
+.adm-actions{display:flex;gap:6px}
+.adm-btn{background:transparent;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);padding:5px 12px;cursor:pointer;font-size:0.75rem;font-family:'Vazirmatn',sans-serif;transition:all 0.2s}
+.adm-btn.edit{border-color:rgba(0,255,255,0.3);color:var(--cyan)}
+.adm-btn.edit:hover{background:rgba(0,255,255,0.08)}
+.adm-btn.del{border-color:rgba(255,71,87,0.3);color:#ff4757}
+.adm-btn.del:hover{background:rgba(255,71,87,0.08)}
+.adm-btn.save{border-color:rgba(0,255,136,0.3);color:var(--green)}
+.adm-btn.save:hover{background:rgba(0,255,136,0.08)}
+
+/* add/edit form in admin */
+.adm-form{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);padding:24px;margin-top:16px}
+.adm-form-title{font-family:'Orbitron',sans-serif;font-size:0.7rem;letter-spacing:3px;color:var(--gold);margin-bottom:18px}
+.adm-f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.adm-f-g{display:flex;flex-direction:column;gap:6px}
+.adm-f-g.full{grid-column:1/-1}
+.adm-lbl{font-size:0.72rem;color:rgba(255,255,255,0.3);font-family:'Orbitron',sans-serif;letter-spacing:2px}
+.adm-inp,.adm-sel,.adm-ta{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:10px 14px;color:#fff;font-family:'Vazirmatn',sans-serif;font-size:0.85rem;outline:none;width:100%;transition:border-color 0.2s}
+.adm-inp:focus,.adm-sel:focus,.adm-ta:focus{border-color:rgba(245,166,35,0.4)}
+.adm-sel option{background:#01020a}
+.adm-ta{resize:vertical;min-height:80px}
+.color-row{display:flex;align-items:center;gap:10px}
+.color-preview{width:36px;height:36px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);flex-shrink:0}
+.img-upload-area{border:1px dashed rgba(255,255,255,0.1);padding:20px;text-align:center;cursor:pointer;transition:all 0.3s;position:relative}
+.img-upload-area:hover{border-color:rgba(245,166,35,0.3);background:rgba(245,166,35,0.02)}
+.img-upload-area input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.img-upload-area p{color:rgba(255,255,255,0.3);font-size:0.8rem}
+.img-preview{max-height:100px;max-width:100%;margin-top:8px;border-radius:4px}
+.adm-save-btn{margin-top:16px;width:100%;background:linear-gradient(135deg,var(--gold),#c47d10);color:#000;border:none;padding:12px;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-weight:900;font-size:0.9rem;transition:transform 0.2s}
+.adm-save-btn:hover{transform:translateY(-1px)}
+
+/* settings tab */
+.settings-rows{display:flex;flex-direction:column;gap:16px}
+.setting-row{display:flex;flex-direction:column;gap:8px;padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05)}
+.setting-lbl{font-family:'Orbitron',sans-serif;font-size:0.62rem;letter-spacing:3px;color:rgba(255,255,255,0.4)}
+.setting-inp{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:12px 16px;color:#fff;font-family:'Vazirmatn',sans-serif;font-size:0.9rem;outline:none;width:100%}
+.setting-inp:focus{border-color:rgba(245,166,35,0.4)}
+.setting-save{margin-top:20px;background:linear-gradient(135deg,var(--gold),#c47d10);color:#000;border:none;padding:12px 28px;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-weight:900;font-size:0.88rem}
+
+/* LOGIN */
+#loginOverlay .modal{max-width:360px;border-color:rgba(245,166,35,0.2)}
+.login-logo{font-family:'Orbitron',sans-serif;font-size:1rem;letter-spacing:4px;color:var(--gold);text-align:center;margin-bottom:28px}
+.login-sub{color:rgba(255,255,255,0.2);font-size:0.78rem;text-align:center;margin-bottom:24px;font-family:'Orbitron',sans-serif;letter-spacing:2px}
+.login-inp{width:100%;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);padding:14px 18px;color:#fff;font-family:'Vazirmatn',sans-serif;font-size:0.9rem;outline:none;margin-bottom:12px;text-align:center;letter-spacing:4px;transition:border-color 0.3s}
+.login-inp:focus{border-color:rgba(245,166,35,0.4)}
+.login-btn{width:100%;background:linear-gradient(135deg,var(--gold),#c47d10);color:#000;border:none;padding:14px;cursor:pointer;font-family:'Orbitron',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:3px;margin-top:4px;transition:transform 0.2s}
+.login-btn:hover{transform:translateY(-2px)}
+.login-err{color:#ff4757;font-size:0.78rem;text-align:center;margin-top:10px;font-family:'Orbitron',sans-serif;letter-spacing:1px;display:none}
+
+/* CHAT */
+.chat-w{position:fixed;bottom:30px;left:30px;z-index:4000}
+.chat-tog{width:60px;height:60px;border-radius:50%;border:1px solid rgba(0,255,255,0.3);background:rgba(0,255,255,0.05);cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(0,255,255,0.2);animation:chatGlow 3s infinite;transition:transform 0.2s}
+.chat-tog:hover{transform:scale(1.1)}
+@keyframes chatGlow{0%,100%{box-shadow:0 0 30px rgba(0,255,255,0.2)}50%{box-shadow:0 0 50px rgba(0,255,255,0.4)}}
+.chat-box{position:absolute;bottom:74px;left:0;width:340px;background:#01020a;border:1px solid rgba(0,255,255,0.12);display:none;flex-direction:column;overflow:hidden}
+.chat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+.chat-box.open{display:flex}
+.ch-head{padding:16px 18px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px;background:rgba(0,255,255,0.02)}
+.ch-av{width:36px;height:36px;border-radius:50%;background:rgba(0,255,255,0.08);border:1px solid rgba(0,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 0 15px rgba(0,255,255,0.2)}
+.ch-nm{font-family:'Orbitron',sans-serif;font-size:0.7rem;letter-spacing:2px}
+.ch-st{font-size:0.62rem;color:var(--green);margin-top:2px}
+.ch-msgs{height:290px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.ch-msgs::-webkit-scrollbar{width:3px}
+.ch-msgs::-webkit-scrollbar-thumb{background:rgba(0,255,255,0.2);border-radius:2px}
+.msg{max-width:88%;padding:10px 14px;font-size:0.8rem;line-height:1.7}
+.msg.bot{background:rgba(255,255,255,0.03);border-right:2px solid rgba(0,255,255,0.2);align-self:flex-start}
+.msg.user{background:rgba(245,166,35,0.06);border-left:2px solid rgba(245,166,35,0.2);align-self:flex-end;text-align:right}
+.msg.typing{color:rgba(255,255,255,0.2);font-style:italic;font-size:0.75rem}
+.ch-inp-r{padding:12px;border-top:1px solid rgba(255,255,255,0.04);display:flex;gap:8px}
+.ch-inp{flex:1;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);padding:9px 12px;color:#fff;font-family:'Vazirmatn',sans-serif;font-size:0.8rem;outline:none}
+.ch-inp:focus{border-color:rgba(0,255,255,0.25)}
+.ch-send{background:rgba(0,255,255,0.1);border:1px solid rgba(0,255,255,0.2);color:var(--cyan);width:36px;height:36px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* TOAST */
+.toast{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:rgba(0,255,136,0.9);color:#000;padding:12px 28px;font-weight:700;font-size:0.82rem;z-index:9999;opacity:0;pointer-events:none;transition:opacity 0.3s;font-family:'Orbitron',sans-serif;letter-spacing:2px;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.toast.show{opacity:1}
+
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-right{display:none}.f-grid,.adm-f-grid{grid-template-columns:1fr}.nav-links{display:none}.order-wrap{padding:28px 20px}.adm-form{padding:16px}}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur2"></div>
+<canvas id="three-canvas"></canvas>
+
+<nav>
+  <div class="logo">HOSSEINI SIGNS</div>
+  <ul class="nav-links">
+    <li><a href="#products">PRODUCTS</a></li>
+    <li><a href="#order">ORDER</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="btn-admin-nav" onclick="openLogin()">⚙ ADMIN</button>
+    <button class="btn-cart" onclick="openCart()">🛒 سبد <span class="cbadge" id="cb">0</span></button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="h-eyebrow"><div class="h-ey-line"></div><div class="h-ey-text">نفر اول اتحادیه تابلوسازی ایران</div><div class="h-ey-dot"></div></div>
+      <h1 class="hero-h1">
+        <span class="h1-top">IRAN'S ONLY</span>
+        <span class="h1-main"><span class="t1">FULL</span><span class="t2">COLOR</span></span>
+        <span class="h1-sub">SIGN MAKER</span>
+      </h1>
+      <p class="hero-p" id="heroDesc">تنها تولیدکننده تابلو فول کالر در ایران. بیش از ۵۰۰۰ پروژه اجراشده با فناوری LED نسل جدید — ۱۶ میلیون رنگ، گارانتی ۳ ساله.</p>
+      <div class="hero-btns">
+        <button class="btn-p" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">مشاهده محصولات</button>
+        <button class="btn-g" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">سفارش سفارشی</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="sign-ring">
+        <div class="ring-outer"><div class="ring-dot"></div></div>
+        <div class="ring-mid"><div class="ring-dot ring-dot2"></div></div>
+        <div class="ring-inner"><div class="ring-dot ring-dot3"></div></div>
+      </div>
+      <div class="signs-3d">
+        <div class="s3d s3d-a">A</div><div class="s3d s3d-b">B</div>
+        <div class="s3d s3d-c">C</div><div class="s3d s3d-d">D</div>
+        <div class="s3d s3d-center">FC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap"><div class="ticker-track" id="tt"></div></div>
+
+<div class="section" id="products">
+  <div class="s-eye"><div class="s-eye-line"></div><div class="s-eye-txt">محصولات</div></div>
+  <h2 class="s-title">تابلوهای <em>فول کالر</em> آماده</h2>
+  <p class="s-sub">LED نسل جدید — گارانتی ۳ ساله — ارسال سراسری</p>
+  <div class="p-grid" id="pg"></div>
+</div>
+
+<div class="section" id="order" style="padding-top:0">
+  <div class="s-eye"><div class="s-eye-line"></div><div class="s-eye-txt">سفارش اختصاصی</div></div>
+  <h2 class="s-title">تابلوی <em>سفارشی</em> خود را ثبت کنید</h2>
+  <p class="s-sub">تماس در کمتر از ۲ ساعت</p>
+  <div class="order-wrap">
+    <div class="f-grid">
+      <div class="f-g"><label class="f-lbl">نام</label><input class="f-in" type="text" placeholder="علی محمدی" id="fn"></div>
+      <div class="f-g"><label class="f-lbl">شماره تماس</label><input class="f-in" type="tel" placeholder="09xxxxxxxxx" id="fp" dir="ltr"></div>
+      <div class="f-g"><label class="f-lbl">نوع تابلو</label>
+        <select class="f-sel" id="ft"><option value="">انتخاب...</option><option>تابلو حروف فول کالر</option><option>لایت‌باکس فول کالر</option><option>تابلو LED هوشمند</option><option>تابلو سردرب</option><option>بیلبورد</option><option>سایر</option></select>
+      </div>
+      <div class="f-g"><label class="f-lbl">ابعاد</label><input class="f-in" type="text" placeholder="۱۰۰×۵۰ سانتی‌متر" id="fs"></div>
+      <div class="f-g full"><label class="f-lbl">توضیحات</label><textarea class="f-ta" id="fd" placeholder="رنگ، متن، طرح..."></textarea></div>
+    </div>
+    <button class="sub-btn" onclick="submitOrder()">⚡ ثبت سفارش — تماس در کمتر از ۲ ساعت</button>
+  </div>
+</div>
+
+<div class="section" id="contact" style="padding-top:0">
+  <div class="s-eye"><div class="s-eye-line"></div><div class="s-eye-txt">تماس</div></div>
+  <h2 class="s-title">همین الان <em>تماس</em> بگیرید</h2>
+  <p class="s-sub">۷ روز هفته — ۸ صبح تا ۱۰ شب</p>
+  <div class="c-grid">
+    <div class="c-card"><span class="c-ic">📞</span><div class="c-lbl">تماس مستقیم</div><div class="c-val" id="contactPhone">09362190422</div><div class="c-sub">آقای حسینی — مدیر فروش</div></div>
+    <div class="c-card"><span class="c-ic">🏆</span><div class="c-lbl">جایگاه</div><div class="c-val" style="font-size:0.88rem">نفر اول اتحادیه</div><div class="c-sub">تنها تولیدکننده فول کالر ایران</div></div>
+    <div class="c-card"><span class="c-ic">⚡</span><div class="c-lbl">پاسخگویی</div><div class="c-val">زیر ۲ ساعت</div><div class="c-sub">تضمینی</div></div>
+    <div class="c-card"><span class="c-ic">🚀</span><div class="c-lbl">ارسال</div><div class="c-val">سراسر ایران</div><div class="c-sub">نصب با تیم متخصص</div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo">HOSSEINI SIGNS</div>
+  <p>تنها تولیدکننده تابلو فول کالر ایران — نفر اول اتحادیه تابلوسازی</p>
+  <p>📞 <span id="footerPhone">09362190422</span></p>
+</footer>
+
+<!-- CART -->
+<div class="overlay" id="cartOverlay">
+  <div class="modal">
+    <div class="m-head"><div class="m-title">CART // سبد خرید</div><button class="m-close" onclick="closeCart()">✕</button></div>
+    <div id="ci"></div><div id="cf"></div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="overlay" id="loginOverlay">
+  <div class="modal">
+    <div class="login-logo">⚙ ADMIN PANEL</div>
+    <div class="login-sub">HOSSEINI SIGNS</div>
+    <input class="login-inp" type="password" id="loginPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">ENTER // ورود</button>
+    <div class="login-err" id="loginErr">رمز اشتباه است</div>
+    <div style="margin-top:16px;text-align:center"><button style="background:none;border:none;color:rgba(255,255,255,0.2);cursor:pointer;font-size:0.75rem" onclick="closeLogin()">انصراف</button></div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="overlay" id="adminOverlay">
+  <div class="modal">
+    <div class="m-head"><div class="m-title">⚙ ADMIN PANEL</div><button class="m-close" onclick="closeAdmin()">✕</button></div>
+    <div class="admin-tabs">
+      <button class="a-tab active" onclick="switchTab('products')">محصولات</button>
+      <button class="a-tab" onclick="switchTab('settings')">تنظیمات سایت</button>
+      <button class="a-tab" onclick="switchTab('password')">تغییر رمز</button>
+    </div>
+
+    <!-- TAB: PRODUCTS -->
+    <div class="tab-content active" id="tab-products">
+      <div class="adm-prod-list" id="admProdList"></div>
+      <button class="adm-btn edit" style="width:100%;padding:10px" onclick="showAddForm()">+ افزودن محصول جدید</button>
+      <div class="adm-form" id="admForm" style="display:none">
+        <div class="adm-form-title" id="admFormTitle">افزودن محصول</div>
+        <div class="adm-f-grid">
+          <div class="adm-f-g full"><label class="adm-lbl">نام محصول</label><input class="adm-inp" id="af-name" placeholder="تابلو حرف A فول کالر"></div>
+          <div class="adm-f-g"><label class="adm-lbl">قیمت (تومان)</label><input class="adm-inp" id="af-price" placeholder="۲،۸۰۰،۰۰۰"></div>
+          <div class="adm-f-g"><label class="adm-lbl">نماد / حرف</label><input class="adm-inp" id="af-icon" placeholder="A" maxlength="3"></div>
+          <div class="adm-f-g full"><label class="adm-lbl">توضیحات</label><textarea class="adm-ta" id="af-desc" placeholder="ویژگی‌های محصول..."></textarea></div>
+          <div class="adm-f-g"><label class="adm-lbl">رنگ نمایش</label>
+            <div class="color-row">
+              <input type="color" id="af-color" value="#f5a623" style="width:50px;height:36px;background:none;border:none;cursor:pointer;padding:0">
+              <div class="color-preview" id="colorPreview" style="background:#f5a623"></div>
+              <span style="color:rgba(255,255,255,0.3);font-size:0.78rem" id="colorHex">#f5a623</span>
+            </div>
+          </div>
+          <div class="adm-f-g"><label class="adm-lbl">عکس محصول (اختیاری)</label>
+            <div class="img-upload-area" id="imgUploadArea">
+              <input type="file" accept="image/*" id="af-img" onchange="previewImg(event)">
+              <p>📷 کلیک کنید یا عکس بکشید</p>
+              <img id="imgPreviewEl" class="img-preview" style="display:none">
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px">
+          <button class="adm-save-btn" onclick="saveProduct()" style="flex:1">ذخیره محصول</button>
+          <button class="adm-btn del" onclick="cancelForm()" style="padding:12px 20px">انصراف</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: SETTINGS -->
+    <div class="tab-content" id="tab-settings">
+      <div class="settings-rows">
+        <div class="setting-row"><label class="setting-lbl">شماره تماس</label><input class="setting-inp" id="s-phone" placeholder="09362190422"></div>
+        <div class="setting-row"><label class="setting-lbl">توضیحات صفحه اصلی</label><textarea class="setting-inp" id="s-desc" style="resize:vertical;min-height:80px" placeholder="توضیح کوتاه درباره کسب‌وکار..."></textarea></div>
+      </div>
+      <button class="setting-save" onclick="saveSettings()">ذخیره تنظیمات</button>
+    </div>
+
+    <!-- TAB: PASSWORD -->
+    <div class="tab-content" id="tab-password">
+      <div class="settings-rows">
+        <div class="setting-row"><label class="setting-lbl">رمز فعلی</label><input class="setting-inp" type="password" id="p-old" placeholder="••••••••"></div>
+        <div class="setting-row"><label class="setting-lbl">رمز جدید</label><input class="setting-inp" type="password" id="p-new" placeholder="••••••••"></div>
+        <div class="setting-row"><label class="setting-lbl">تکرار رمز جدید</label><input class="setting-inp" type="password" id="p-new2" placeholder="••••••••"></div>
+      </div>
+      <button class="setting-save" onclick="changePass()">تغییر رمز عبور</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHAT -->
+<div class="chat-w">
+  <div class="chat-box" id="chatBox">
+    <div class="ch-head"><div class="ch-av">🤖</div><div><div class="ch-nm">AI SUPPORT</div><div class="ch-st">● ONLINE</div></div></div>
+    <div class="ch-msgs" id="chm"></div>
+    <div class="ch-inp-r"><input class="ch-inp" id="chi" placeholder="سوال بنویسید..." onkeydown="if(event.key==='Enter')sendChat()"><button class="ch-send" onclick="sendChat()">↑</button></div>
+  </div>
+  <button class="chat-tog" onclick="toggleChat()">💬</button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ============ CURSOR ============
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  setTimeout(()=>{cur2.style.left=e.clientX+'px';cur2.style.top=e.clientY+'px'},80);
+});
+
+// ============ THREE.JS ============
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,innerWidth/innerHeight,0.1,1000);
+const renderer=new THREE.WebGLRenderer({canvas:document.getElementById('three-canvas'),antialias:true,alpha:true});
+renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+camera.position.z=30;
+const sGeo=new THREE.BufferGeometry();const sCount=3000;
+const sp=new Float32Array(sCount*3),sc=new Float32Array(sCount*3);
+for(let i=0;i<sCount;i++){sp[i*3]=(Math.random()-.5)*200;sp[i*3+1]=(Math.random()-.5)*200;sp[i*3+2]=(Math.random()-.5)*200;const c=Math.random();if(c<.33){sc[i*3]=0;sc[i*3+1]=1;sc[i*3+2]=1}else if(c<.66){sc[i*3]=1;sc[i*3+1]=.65;sc[i*3+2]=.14}else{sc[i*3]=sc[i*3+1]=sc[i*3+2]=1}}
+sGeo.setAttribute('position',new THREE.BufferAttribute(sp,3));sGeo.setAttribute('color',new THREE.BufferAttribute(sc,3));
+const stars=new THREE.Points(sGeo,new THREE.PointsMaterial({size:.15,vertexColors:true,transparent:true,opacity:.8}));scene.add(stars);
+const grid=new THREE.GridHelper(200,40,0x001a1a,0x001a1a);grid.position.y=-20;grid.material.opacity=.3;grid.material.transparent=true;scene.add(grid);
+const torii=[];[0x00ffff,0xf5a623,0xff00ff,0x00ff88].forEach((col,i)=>{const t=new THREE.Mesh(new THREE.TorusGeometry(8+i*3,.05,8,80),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.12}));t.rotation.x=Math.random()*Math.PI;t.rotation.y=Math.random()*Math.PI;scene.add(t);torii.push(t)});
+let mx=0,my=0;document.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=-(e.clientY/innerHeight-.5)*2});
+window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+let tt3=0;(function a3(){requestAnimationFrame(a3);tt3+=.005;stars.rotation.y=tt3*.05;stars.rotation.x=tt3*.02;torii.forEach((t,i)=>{t.rotation.x+=.003*(i+1)*.5;t.rotation.y+=.002*(i+1)*.5});grid.position.z=(tt3*2)%5;camera.position.x+=(mx*3-camera.position.x)*.02;camera.position.y+=(my*2-camera.position.y)*.02;camera.lookAt(scene.position);renderer.render(scene,camera)})();
+
+// ============ STORAGE (localStorage for persistence) ============
+function loadData(){
+  try{
+    const d=localStorage.getItem('hosseini_data');
+    if(d)return JSON.parse(d);
+  }catch(e){}
+  return null;
+}
+function saveData(){
+  try{localStorage.setItem('hosseini_data',JSON.stringify(siteData))}catch(e){}
+}
+
+// Default data
+const defaultProds=[
+  {id:1,name:'تابلو حرف A فول کالر',desc:'LED فول کالر ۱۶M رنگ، آلومینیوم درجه یک، ضدآب IP65',price:'۲،۸۰۰،۰۰۰',icon:'A',color:'#f5a623',img:''},
+  {id:2,name:'تابلو حرف B فول کالر',desc:'کنترل از راه دور، نور یکنواخت بی‌نقص',price:'۲،۸۰۰،۰۰۰',icon:'B',color:'#00ffff',img:''},
+  {id:3,name:'تابلو حرف C فول کالر',desc:'پروفیل عمیق ۱۰ سانت، پخش نور بی‌نظیر',price:'۲،۹۰۰،۰۰۰',icon:'C',color:'#ff00ff',img:''},
+  {id:4,name:'تابلو حرف D فول کالر',desc:'RGB پیشرفته، گارانتی ۳ ساله تضمینی',price:'۲،۸۰۰،۰۰۰',icon:'D',color:'#00ff88',img:''},
+  {id:5,name:'لایت‌باکس فول کالر',desc:'۱۰۰×۵۰ سانت، چاپ UV، LED پشت‌نور',price:'۵،۵۰۰،۰۰۰',icon:'□',color:'#ff6400',img:''},
+  {id:6,name:'ست حروف برند',desc:'طراحی و ساخت کامل ست حروف نام تجاری',price:'استعلام',icon:'✦',color:'#ffd700',img:''},
+];
+
+let loaded=loadData();
+let siteData=loaded||{products:[...defaultProds],settings:{phone:'09362190422',desc:'تنها تولیدکننده تابلو فول کالر در ایران. بیش از ۵۰۰۰ پروژه اجراشده با فناوری LED نسل جدید — ۱۶ میلیون رنگ، گارانتی ۳ ساله.'},password:'hosseini1404',nextId:7};
+let cart=[];
+let editingId=null;
+let imgData='';
+
+// ============ TICKER ============
+const td=[{n:'+۲۰',l:'سال تجربه'},{n:'+۵۰۰۰',l:'پروژه'},{n:'#۱',l:'اتحادیه'},{n:'۱۶M',l:'رنگ'},{n:'۲۴/۷',l:'پشتیبانی'},{n:'۳',l:'سال گارانتی'},{n:'۱۰۰٪',l:'ساخت ایران'}];
+const th=td.map((t,i)=>`<div class="tick-item"><span class="tick-n">${t.n}</span><span class="tick-l">${t.l}</span>${i<td.length-1?'<span class="tick-sep">◈</span>':''}</div>`).join('');
+document.getElementById('tt').innerHTML=th+th;
+
+// ============ RENDER PRODUCTS ============
+function renderProducts(){
+  const pg=document.getElementById('pg');
+  pg.innerHTML=siteData.products.map((p,i)=>`
+    <div class="p-card">
+      <div class="p-visual" style="background:${hexToRgba(p.color,0.07)};color:${p.color};text-shadow:0 0 40px ${p.color}">
+        ${p.img?`<img class="p-img" src="${p.img}" alt="${p.name}"><div style="position:absolute;inset:0;background:linear-gradient(transparent 40%,${hexToRgba(p.color,0.2)})"></div>`:''}
+        <div class="p-scanline"></div>
+        <div class="p-letter">${p.img?'':p.icon}</div>
+      </div>
+      <div class="p-info">
+        <div class="p-num">PRODUCT // ${String(i+1).padStart(2,'0')}</div>
+        <div class="p-name">${p.name}</div>
+        <div class="p-desc">${p.desc}</div>
+        <div class="p-foot">
+          <div class="p-price">${p.price}${p.price!=='استعلام'?' T':''}</div>
+          <button class="btn-add" id="ba${p.id}" onclick="addCart(${p.id})">+ افزودن</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function hexToRgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`}
+
+// ============ APPLY SETTINGS ============
+function applySettings(){
+  document.getElementById('heroDesc').textContent=siteData.settings.desc;
+  document.getElementById('contactPhone').textContent=siteData.settings.phone;
+  document.getElementById('footerPhone').textContent=siteData.settings.phone;
+}
+
+// ============ CART ============
+function addCart(id){
+  const p=siteData.products.find(x=>x.id===id);
+  if(!p||p.price==='استعلام'){toast('برای این محصول تماس بگیرید: '+siteData.settings.phone);return}
+  const ex=cart.find(x=>x.id===id);
+  if(ex)ex.qty++;else cart.push({...p,qty:1});
+  document.getElementById('cb').textContent=cart.reduce((s,x)=>s+x.qty,0);
+  const b=document.getElementById('ba'+id);
+  b.textContent='✓ افزوده';b.classList.add('added');
+  setTimeout(()=>{b.textContent='+ افزودن';b.classList.remove('added')},1500);
+  toast('✓ به سبد اضافه شد');
+}
+function openCart(){renderCart();document.getElementById('cartOverlay').classList.add('open')}
+function closeCart(){document.getElementById('cartOverlay').classList.remove('open')}
+function renderCart(){
+  const ci=document.getElementById('ci'),cf=document.getElementById('cf');
+  if(!cart.length){ci.innerHTML='<div class="c-empty">CART IS EMPTY</div>';cf.innerHTML='';return}
+  ci.innerHTML=cart.map(i=>`<div class="c-item"><div class="c-ic2" style="background:${hexToRgba(i.color,0.1)};color:${i.color}">${i.icon}</div><div style="flex:1"><div class="c-nm">${i.name}</div><div class="c-pr">${i.price} × ${i.qty}</div></div><button class="c-rm" onclick="remCart(${i.id})">✕</button></div>`).join('');
+  cf.innerHTML=`<button class="ck-btn" onclick="checkout()">📞 نهایی‌سازی — ${siteData.settings.phone}</button>`;
+}
+function remCart(id){cart=cart.filter(x=>x.id!==id);document.getElementById('cb').textContent=cart.reduce((s,x)=>s+x.qty,0);renderCart()}
+function checkout(){closeCart();toast('با '+siteData.settings.phone+' تماس بگیرید');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),500)}
+
+function submitOrder(){
+  const n=document.getElementById('fn').value,p=document.getElementById('fp').value,t=document.getElementById('ft').value;
+  if(!n||!p||!t){toast('⚠ فیلدهای اصلی را پر کنید');return}
+  toast('✓ سفارش '+n+' ثبت شد');
+  ['fn','fp','fs','fd'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('ft').value='';
+}
+
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
+
+// ============ LOGIN ============
+function openLogin(){document.getElementById('loginOverlay').classList.add('open');document.getElementById('loginPass').value='';document.getElementById('loginErr').style.display='none'}
+function closeLogin(){document.getElementById('loginOverlay').classList.remove('open')}
+function doLogin(){
+  const pass=document.getElementById('loginPass').value;
+  if(pass===siteData.password){closeLogin();openAdmin()}
+  else{document.getElementById('loginErr').style.display='block';document.getElementById('loginPass').value=''}
+}
+
+// ============ ADMIN ============
+function openAdmin(){
+  document.getElementById('adminOverlay').classList.add('open');
+  switchTab('products');renderAdminProducts();
+  document.getElementById('s-phone').value=siteData.settings.phone;
+  document.getElementById('s-desc').value=siteData.settings.desc;
+}
+function closeAdmin(){document.getElementById('adminOverlay').classList.remove('open')}
+function switchTab(name){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.a-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  const tabs={products:0,settings:1,password:2};
+  document.querySelectorAll('.a-tab')[tabs[name]].classList.add('active');
+}
+
+function renderAdminProducts(){
+  const el=document.getElementById('admProdList');
+  if(!siteData.products.length){el.innerHTML='<div style="text-align:center;padding:20px;color:rgba(255,255,255,0.2);font-size:0.8rem">محصولی وجود ندارد</div>';return}
+  el.innerHTML=siteData.products.map(p=>`
+    <div class="adm-prod-item">
+      <div class="adm-prod-icon" style="color:${p.color};background:${hexToRgba(p.color,0.1)}">${p.icon}</div>
+      <div class="adm-prod-info">
+        <div class="adm-prod-name">${p.name}</div>
+        <div class="adm-prod-price">${p.price}</div>
+      </div>
+      <div class="adm-actions">
+        <button class="adm-btn edit" onclick="editProduct(${p.id})">ویرایش</button>
+        <button class="adm-btn del" onclick="deleteProduct(${p.id})">حذف</button>
+      </div>
+    </div>`).join('');
+}
+
+function showAddForm(){
+  editingId=null;imgData='';
+  document.getElementById('admFormTitle').textContent='افزودن محصول جدید';
+  document.getElementById('af-name').value='';
+  document.getElementById('af-price').value='';
+  document.getElementById('af-icon').value='';
+  document.getElementById('af-desc').value='';
+  document.getElementById('af-color').value='#f5a623';
+  document.getElementById('colorPreview').style.background='#f5a623';
+  document.getElementById('colorHex').textContent='#f5a623';
+  document.getElementById('af-img').value='';
+  document.getElementById('imgPreviewEl').style.display='none';
+  document.getElementById('admForm').style.display='block';
+}
+
+function editProduct(id){
+  const p=siteData.products.find(x=>x.id===id);if(!p)return;
+  editingId=id;imgData=p.img||'';
+  document.getElementById('admFormTitle').textContent='ویرایش محصول';
+  document.getElementById('af-name').value=p.name;
+  document.getElementById('af-price').value=p.price;
+  document.getElementById('af-icon').value=p.icon;
+  document.getElementById('af-desc').value=p.desc;
+  document.getElementById('af-color').value=p.color;
+  document.getElementById('colorPreview').style.background=p.color;
+  document.getElementById('colorHex').textContent=p.color;
+  if(p.img){const el=document.getElementById('imgPreviewEl');el.src=p.img;el.style.display='block'}
+  else{document.getElementById('imgPreviewEl').style.display='none'}
+  document.getElementById('admForm').style.display='block';
+}
+
+function cancelForm(){document.getElementById('admForm').style.display='none';editingId=null;imgData=''}
+
+function saveProduct(){
+  const name=document.getElementById('af-name').value.trim();
+  const price=document.getElementById('af-price').value.trim();
+  const icon=document.getElementById('af-icon').value.trim();
+  const desc=document.getElementById('af-desc').value.trim();
+  const color=document.getElementById('af-color').value;
+  if(!name||!price||!icon){toast('⚠ نام، قیمت و نماد را وارد کنید');return}
+  if(editingId){
+    const idx=siteData.products.findIndex(x=>x.id===editingId);
+    if(idx!==-1)siteData.products[idx]={...siteData.products[idx],name,price,icon,desc,color,img:imgData};
+  }else{
+    siteData.products.push({id:siteData.nextId++,name,price,icon,desc,color,img:imgData});
+  }
+  saveData();renderProducts();renderAdminProducts();cancelForm();toast('✓ محصول ذخیره شد');
+}
+
+function deleteProduct(id){
+  if(!confirm('آیا مطمئنی؟ این محصول حذف می‌شود.'))return;
+  siteData.products=siteData.products.filter(x=>x.id!==id);
+  saveData();renderProducts();renderAdminProducts();toast('✓ محصول حذف شد');
+}
+
+function previewImg(e){
+  const file=e.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    imgData=ev.target.result;
+    const el=document.getElementById('imgPreviewEl');el.src=imgData;el.style.display='block';
+  };
+  reader.readAsDataURL(file);
+}
+
+document.getElementById('af-color').addEventListener('input',e=>{
+  document.getElementById('colorPreview').style.background=e.target.value;
+  document.getElementById('colorHex').textContent=e.target.value;
+});
+
+function saveSettings(){
+  siteData.settings.phone=document.getElementById('s-phone').value.trim()||siteData.settings.phone;
+  siteData.settings.desc=document.getElementById('s-desc').value.trim()||siteData.settings.desc;
+  saveData();applySettings();toast('✓ تنظیمات ذخیره شد');
+}
+
+function changePass(){
+  const old=document.getElementById('p-old').value;
+  const n1=document.getElementById('p-new').value;
+  const n2=document.getElementById('p-new2').value;
+  if(old!==siteData.password){toast('⚠ رمز فعلی اشتباه است');return}
+  if(n1.length<4){toast('⚠ رمز جدید باید حداقل ۴ کاراکتر باشد');return}
+  if(n1!==n2){toast('⚠ تکرار رمز مطابقت ندارد');return}
+  siteData.password=n1;saveData();
+  ['p-old','p-new','p-new2'].forEach(id=>document.getElementById(id).value='');
+  toast('✓ رمز عبور تغییر کرد');
+}
+
+// ============ AI CHAT ============
+let chatOpen=false,chatHist=[];
+function toggleChat(){chatOpen=!chatOpen;document.getElementById('chatBox').classList.toggle('open',chatOpen);if(chatOpen&&!chatHist.length)addBot('سلام! دستیار هوشمند تابلوسازی حسینی هستم 👋 چطور کمک کنم؟')}
+function addBot(t){const e=document.getElementById('chm');const d=document.createElement('div');d.className='msg bot';d.textContent=t;e.appendChild(d);e.scrollTop=e.scrollHeight}
+function addUser(t){const e=document.getElementById('chm');const d=document.createElement('div');d.className='msg user';d.textContent=t;e.appendChild(d);e.scrollTop=e.scrollHeight}
+async function sendChat(){
+  const inp=document.getElementById('chi');const txt=inp.value.trim();if(!txt)return;
+  inp.value='';addUser(txt);chatHist.push({role:'user',content:txt});
+  const e=document.getElementById('chm');const d=document.createElement('div');d.className='msg bot typing';d.id='typ';d.textContent='...';e.appendChild(d);e.scrollTop=e.scrollHeight;
+  const sys=`تو دستیار هوشمند تابلوسازی حسینی هستی. شماره: ${siteData.settings.phone}. تنها تولیدکننده فول کالر ایران. نفر اول اتحادیه. گارانتی ۳ ساله. ارسال سراسری. فارسی کوتاه پاسخ بده.`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:sys,messages:chatHist})});
+    const data=await r.json();const reply=data.content?.[0]?.text||'خطا — لطفاً تماس بگیرید';
+    document.getElementById('typ')?.remove();addBot(reply);chatHist.push({role:'assistant',content:reply});
+  }catch{document.getElementById('typ')?.remove();addBot('اتصال قطع است. با '+siteData.settings.phone+' تماس بگیرید.')}
+}
+
+// ============ INIT ============
+renderProducts();
+applySettings();
+</script>
+</body>
+</html>
